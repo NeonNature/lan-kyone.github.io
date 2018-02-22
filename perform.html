@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lan Kyone</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <script>
+function nav_open() {
+    document.getElementById("sidebar").style.display = "block";
+}
+function nav_close() {
+    document.getElementById("sidebar").style.display = "none";
+}
+</script>
+
+
+</head>
+<body>
+
+<div class="w3-sidebar w3-bar-block w3-border-left w3-animate-left" style="display:none;" id="sidebar">
+  <div class="" style="height:76px">
+    <button  style="height:60px" class="btn btn-lg btn-block" onclick="nav_close()" class="w3-bar-item w3-large">☰</button>
+  </div>
+  <a href="#" class="w3-bar-item"><img src="../images/profile.gif" alt="Profile Pic" class="img-fluid rounded-circle" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" /></a>
+  <a href="#" class="w3-bar-item w3-button text-center" style="text-decoration: none;">Perform</a>
+    <a href="#" class="w3-bar-item w3-button text-center" style="text-decoration: none;">Contact Requests</a>
+    <a href="#" class="w3-bar-item w3-button text-center" style="text-decoration: none;">Contact List</a>
+    <a href="#" class="w3-bar-item w3-button text-center" style="text-decoration: none;">Track</a>
+    
+
+    <a href="#" class="w3-bar-item w3-button text-center bg-danger text-light">Logout</a>
+</div>
+
+
+
+  <nav class="navbar bg-info navbar-dark">      
+      
+      <button class="btn btn-info btn-lg" onclick="nav_open();">
+      ☰
+      </button>
+      <h3 class="text-light" style="font-weight:bold; margin: 0 auto; font-family: 'Roboto Slab', serif;">Perform</h3>
+      
+  </nav>
+  <br /> <br /> 
+  <div class="container">
+
+  
+  <div class="row"> 
+  <a href="search.html" class="card col-sm-6 bg-success text-white text-center" style="text-decoration:none;">
+    <div class="card-body">
+      <h4 class="card-title">Search</h4>
+      <i class="fa fa-cab" style="font-size:48px;color:white"></i> <br /><br />
+      <p class="card-text font-italic">Pick up Passengers</p>
+    </div>
+  </a>
+  
+  <a href="request.html" class="card col-sm-6 bg-primary text-white text-center" style="text-decoration:none;">
+    <div class="card-body">
+      <h4 class="card-title">Request</h4>
+      <i class="material-icons" style="font-size:48px;color:white">person_pin</i> <br /><br />
+      <p class="card-text font-italic">Request to be picked up</p>
+    </div>
+  </a>
+  </div>
+  
+</div>
+</body>
+
+</html>
+
