@@ -86,10 +86,42 @@
           <input type="text" class="form-control" id="name" placeholder="Full name" name="name" required />
         </div>
       </div> 
-      <div class="form-group">
-        <div class="col-sm-12">
-          <input type="text" class="form-control" id="nrc" placeholder="NRC or Office ID" name="nrc" required />
+      <div class="form-group row">
+        <div class="col-2">
+        <select class="form-control" id="nrc1" name="nrc1">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>/
         </div>
+        
+        <div class="col-2">
+        <select class="form-control" id="nrc2" name="nrc2">
+            <option value="ma ka na">Ma Ka Na</option>
+            <option value="oo ka ta">Oo Ka Ta</option>
+            <option value="tha ga ka">Tha Ga Ka</option>
+        </select>
+        </div>
+        
+        <div class="col-2">(
+        <select class="form-control" id="nrc3" name="nrc3">
+            <option value="n">N</option>
+        </select>)
+        </div>
+        
+        <div class="col-8">
+            <input type="number" class="form-control" id="nrc4" placeholder="123456" name="nrc4" minlength="6" maxlength="6" required />
+        </div>
+
       </div>
       <div class="form-group">
         <div class="col-sm-12">
