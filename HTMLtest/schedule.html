@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Schedule - Lan Kyone</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<nav class="navbar navbar-expand  navbar-dark sticky-top" style="background-color:#FFF";>
+    <ul class="nav w-100 nav-justified border-bottom">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="material-icons text-info" style="font-size:30px;">event_note</i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="material-icons text-muted" style="font-size:30px; ">notifications</i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="material-icons text-muted" style="font-size:30px;">people</i></a>
+    </li>
+  </ul>
+</nav>
+
+
+<body>
+<div class="container-fluid">
+<form class="form-inline" action="">
+    <input class="form-control col-10" type="text" placeholder="Search">
+    <button class="btn btn-success col-2" type="submit"><i class="material-icons" style="font-size:16px;">search</i></button>
+  </form>
+  <hr />
+  
+<!--Create --> 
+  
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Create a Request</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="">
+    <div class="form-group">
+      <div class="col-sm-12">
+        <input type="text" class="form-control" placeholder="To" name="to">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <input type="text" class="form-control" placeholder="From" name="from">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <input type="number" class="form-control" placeholder="Expected Fee (Ks)" name="efee">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <input type="number" class="form-control" placeholder="Desired Payment (Ks)" name="pfee">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <input type="time" class="form-control" name="time">
+      </div>
+    </div>
+
+    <div class="form-group">        
+      <div class="col-sm-12">
+        <textarea rows="2" class="form-control" placeholder="Additional Description"></textarea>
+      </div>
+    </div>
+    
+    <div class="form-group">        
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-block btn-success">Request</button>
+      </div>
+    </div>
+  </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<!--                  --                  --               -->
+
+  <a href="view_request.html" class="card bg-light text-dark" style="text-decoration:none; margin-bottom:5px;"  data-toggle="modal" data-target="#requestid1" >
+    <div class="card-body">
+        <small>To</small> <span class="text-success">Hledan</span><br /> 
+        <small>From</small> <span class="text-info">Insein</span> 
+        
+        <small><span class="float-right">at 5:00 PM</span></small>
+    </div>
+  </a>
+  <div class="modal fade" id="requestid1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> 
+        <h4 class="modal-title">View Request</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="collapse modalrequest show">
+           <table class="table">
+    <tbody style="font-size:14px;">
+      <tr class="table-success">
+        <th>To</th>
+        <td>Hledan</td>
+      </tr>
+      <tr class="table-success">
+        <th>From</th>
+        <td>Insein</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Expected Fee</th>
+        <td>4000</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Desired Payment</th>
+        <td>2000</td>
+      </tr>      
+      <tr class="table-danger">
+        <th>Time</th>
+        <td>5:00 PM</td>
+      </tr>
+      <tr class="table-warning">
+        <th>Notes</th>
+        <td>No couples allowed</td>
+      </tr>
+      <tr class="table-warning">
+        <th>By</th>
+        <td>959421945523</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="form-group">        
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-success btn-block" data-toggle="collapse" data-target=".modalrequest" name="request">Request</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modalrequest collapse">
+      <form name="rider2" action="">
+      <div class="form-group">        
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-muted btn-block" data-toggle="collapse" data-target=".modalrequest" name="back">Back</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+      <div class="col-sm-12">
+        <input type="text" class="form-control" placeholder="To" name="to2">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <input type="text" class="form-control" placeholder="From" name="from2">
+      </div>
+    </div>
+
+    <div class="form-group">        
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-success btn-block" name="request">Request</button>
+        </div>
+      </div>
+  </form>
+    </div>
+
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <!--                  --                  --               -->
+  
+  <a href="view_request.html" class="card bg-light text-dark" style="text-decoration:none; margin-bottom:5px;"  data-toggle="modal" data-target="#requestid1" >
+    <div class="card-body">
+        <small>To</small> <span class="text-success">Hledan</span><br /> 
+        <small>From</small> <span class="text-info">Insein</span> 
+        
+        <small><span class="float-right">at 5:00 PM</span></small>
+    </div>
+  </a>
+  <div class="modal fade" id="requestid1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> 
+        <h4 class="modal-title">View Request</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           <table class="table">
+    <tbody style="font-size:14px;">
+      <tr class="table-success">
+        <th>To</th>
+        <td>Hledan</td>
+      </tr>
+      <tr class="table-success">
+        <th>From</th>
+        <td>Insein</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Expected Fee</th>
+        <td>4000</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Desired Payment</th>
+        <td>2000</td>
+      </tr>      
+      <tr class="table-danger">
+        <th>Time</th>
+        <td>5:00 PM</td>
+      </tr>
+      <tr class="table-warning">
+        <th>Description</th>
+        <td>No couples allowed</td>
+      </tr>
+      <tr class="table-warning">
+        <th>By</th>
+        <td>Kyi Shoon Le</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <a href="view_request.html" class="card bg-light text-dark" style="text-decoration:none; margin-bottom:5px;"  data-toggle="modal" data-target="#requestid1" >
+    <div class="card-body">
+        <small>To</small> <span class="text-success">Hledan</span><br /> 
+        <small>From</small> <span class="text-info">Insein</span> 
+        
+        <small><span class="float-right">at 5:00 PM</span></small>
+    </div>
+  </a>
+  <div class="modal fade" id="requestid1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> 
+        <h4 class="modal-title">View Request</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           <table class="table">
+    <tbody style="font-size:14px;">
+      <tr class="table-success">
+        <th>To</th>
+        <td>Hledan</td>
+      </tr>
+      <tr class="table-success">
+        <th>From</th>
+        <td>Insein</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Expected Fee</th>
+        <td>4000</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Desired Payment</th>
+        <td>2000</td>
+      </tr>      
+      <tr class="table-danger">
+        <th>Time</th>
+        <td>5:00 PM</td>
+      </tr>
+      <tr class="table-warning">
+        <th>Description</th>
+        <td>No couples allowed</td>
+      </tr>
+      <tr class="table-warning">
+        <th>By</th>
+        <td>Kyi Shoon Le</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <a href="view_request.html" class="card bg-light text-dark" style="text-decoration:none; margin-bottom:5px;"  data-toggle="modal" data-target="#requestid1" >
+    <div class="card-body">
+        <small>To</small> <span class="text-success">Hledan</span><br /> 
+        <small>From</small> <span class="text-info">Insein</span> 
+        
+        <small><span class="float-right">at 5:00 PM</span></small>
+    </div>
+  </a>
+  <div class="modal fade" id="requestid1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> 
+        <h4 class="modal-title">View Request</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           <table class="table">
+    <tbody style="font-size:14px;">
+      <tr class="table-success">
+        <th>To</th>
+        <td>Hledan</td>
+      </tr>
+      <tr class="table-success">
+        <th>From</th>
+        <td>Insein</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Expected Fee</th>
+        <td>4000</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Desired Payment</th>
+        <td>2000</td>
+      </tr>      
+      <tr class="table-danger">
+        <th>Time</th>
+        <td>5:00 PM</td>
+      </tr>
+      <tr class="table-warning">
+        <th>Description</th>
+        <td>No couples allowed</td>
+      </tr>
+      <tr class="table-warning">
+        <th>By</th>
+        <td>Kyi Shoon Le</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <a href="view_request.html" class="card bg-light text-dark" style="text-decoration:none; margin-bottom:5px;"  data-toggle="modal" data-target="#requestid1" >
+    <div class="card-body">
+        <small>To</small> <span class="text-success">Hledan</span><br /> 
+        <small>From</small> <span class="text-info">Insein</span> 
+        
+        <small><span class="float-right">at 5:00 PM</span></small>
+    </div>
+  </a>
+  <div class="modal fade" id="requestid1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> 
+        <h4 class="modal-title">View Request</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           <table class="table">
+    <tbody style="font-size:14px;">
+      <tr class="table-success">
+        <th>To</th>
+        <td>Hledan</td>
+      </tr>
+      <tr class="table-success">
+        <th>From</th>
+        <td>Insein</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Expected Fee</th>
+        <td>4000</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Desired Payment</th>
+        <td>2000</td>
+      </tr>      
+      <tr class="table-danger">
+        <th>Time</th>
+        <td>5:00 PM</td>
+      </tr>
+      <tr class="table-warning">
+        <th>Description</th>
+        <td>No couples allowed</td>
+      </tr>
+      <tr class="table-warning">
+        <th>By</th>
+        <td>Kyi Shoon Le</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <a href="view_request.html" class="card bg-light text-dark" style="text-decoration:none; margin-bottom:5px;"  data-toggle="modal" data-target="#requestid1" >
+    <div class="card-body">
+        <small>To</small> <span class="text-success">Hledan</span><br /> 
+        <small>From</small> <span class="text-info">Insein</span> 
+        
+        <small><span class="float-right">at 5:00 PM</span></small>
+    </div>
+  </a>
+  <div class="modal fade" id="requestid1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> 
+        <h4 class="modal-title">View Request</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           <table class="table">
+    <tbody style="font-size:14px;">
+      <tr class="table-success">
+        <th>To</th>
+        <td>Hledan</td>
+      </tr>
+      <tr class="table-success">
+        <th>From</th>
+        <td>Insein</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Expected Fee</th>
+        <td>4000</td>
+      </tr>
+      <tr class="table-primary">
+        <th>Desired Payment</th>
+        <td>2000</td>
+      </tr>      
+      <tr class="table-danger">
+        <th>Time</th>
+        <td>5:00 PM</td>
+      </tr>
+      <tr class="table-warning">
+        <th>Description</th>
+        <td>No couples allowed</td>
+      </tr>
+      <tr class="table-warning">
+        <th>Phone No.</th>
+        <td>959421945523</td>
+      </tr>
+      <tr class="table-warning">
+        <th>By</th>
+        <td>Kyi Shoon Le</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <!-- Keep this at bottom -->
+  <button type="button" class="btn btn-info rounded-circle" data-toggle="modal" data-target="#myModal" style="position: fixed;  bottom: 50px; right: 50px; width:60px; height: 60px;">
+   <span style="font-weight: bold; margin: 0 auto; display: table; font-size: 20px;">+</span>
+  </button>
+</div>
+</body>
+</html>
+
+
