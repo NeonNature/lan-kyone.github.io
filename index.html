@@ -44,8 +44,8 @@ color:white;
 }
 
 .bgr, .eff {
-  margin: 0 5px 0 5px;
-    border-radius: 15;
+ 
+    
     border-color: transparent;
 }
 
@@ -59,6 +59,7 @@ color:white;
 
 .eff {
   background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+   margin: 0 5px 0 5px;
 }
 
 .lecontent {
@@ -129,17 +130,20 @@ body {
       </div>
     </div>
         <div class="d-flex" role="group">
-         <a href="" class="btn bgr btn-light w-100">Time</a>
-        <a href="" class="btn bgr btn-light w-100">Date</a>
-              <a href="" class="btn bgr btn-light w-100">To-Do</a>
+         <input type="text" placeholder="Time" id="trio1time" name="trio1time" class="btn bgr btn-light w-100 col-4"  onfocus="(this.type='time')" onblur="if(!this.value)this.type='text'">
+        <input type="text" placeholder="Date" id="trio2date" name="trio2date" class="btn bgr btn-light w-100 col-4"  onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+        <input type="text" placeholder="To-Do" id="trio3todo" name="trio3todo" class="btn bgr btn-light w-100 col-4">
       </div>
+      
+    
+
         <div class="lecontent">
         
         </div>
         
         
         <div class="d-flex ef mx-auto">
-         <button class="btn eff btn-light w-100" data-toggle="modal" data-target="#calc">Calculate Fees</button>
+         <a class="btn eff btn-light w-100" data-toggle="modal" href="#calc">Calculate Fees</a>
       </div>
         
         <div class="modal fade" id="calc">
@@ -150,7 +154,34 @@ body {
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-         Some example text. Some example text. Some example text. Some example text.
+        
+         <div class="row">
+          <b class="col-3">From</b><span class="col-9">: Chit Poat</span>
+          </div><div class="row">
+          <b class="col-3">To</b><span class="col-9">: Chit Poat</span>
+          </div><div class="row">
+          <b class="col-3">Time</b><span class="col-9">: Romantic Time</span>
+          </div><div class="row">
+          <b class="col-3">Date</b><span class="col-9">: Romantic Day</span>
+          </div><div class="row">
+          <b class="col-3">To-do</b><span class="col-9">: Spend Quality Time Together</span>
+         </div>
+         <hr />
+         <div class="row text-center">
+  <div class="card col-3 bg-light text-dark">
+    <span class="card-text"><i class="fa fa-user"></i><br />2500</span>
+  </div>
+  <div class="card col-3 bg-light text-dark">
+    <span class="card-text"><i class="fa fa-user"></i><i class="fa fa-user"></i><br />2500</span>
+  </div>
+  <div class="card col-3 bg-light text-dark">
+    <span class="card-text"><i class="fa fa-user"></i><i class="fa fa-user"></i><i class="fa fa-user"></i><br />2500</span>
+  </div>
+  <div class="card col-3 bg-light text-dark">
+    <span class="card-text"><i class="fa fa-user" style="font-size:12px"></i><i class="fa fa-user" style="font-size:12px"></i><i class="fa fa-user" style="font-size:12px"></i><i class="fa fa-user" style="font-size:12px"></i><br />2500</span>
+  </div>
+  </div>
+         
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-block btn-success">Confirm</button>
