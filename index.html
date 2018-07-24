@@ -104,7 +104,7 @@ body {
       <a class="nav-link" data-toggle="pill" href="#inbox"><i class="fa fa-commenting-o"></i></a>
     </li>
     <li class="nav-item"  id="n4">
-      <a class="nav-link" data-toggle="pill" href="#"><i class="fa fa-navicon"></i></a>
+      <a class="nav-link" data-toggle="pill" href="#barz"><i class="fa fa-navicon"></i></a>
     </li>
   </ul>
   </nav>
@@ -270,6 +270,8 @@ body {
 
 </div>
 
+<!--               ----------------Inbox--------------------- -->
+
 
 <div id="inbox" class="container tab-pane fade">
    
@@ -310,6 +312,12 @@ body {
 </div>
 
 
+<!--               ----------------Nav--------------------- -->
+
+
+<div id="barz" class="container tab-pane fade">
+   
+</div>
 
 
 </div>
@@ -325,6 +333,7 @@ $( document ).ready(function() {
       $( ".fa-calendar" ).removeClass( "activepill" );
       $( ".fa-th-large" ).removeClass( "activepill" );
       $( ".fa-commenting-o" ).removeClass( "activepill" );
+      $( ".fa-navicon" ).removeClass( "activepill" );
       document.getElementById("toptitle").innerHTML = "Route";
     });
 
@@ -335,6 +344,7 @@ $( document ).ready(function() {
       $( ".fa-calendar" ).removeClass( "activepill" );
       $( ".fa-th-large" ).removeClass( "activepill" );
       $( ".fa-commenting-o" ).removeClass( "activepill" );
+      $( ".fa-navicon" ).removeClass( "activepill" );
       document.getElementById("toptitle").innerHTML = "Route";
     });
 
@@ -345,6 +355,7 @@ $( document ).ready(function() {
       $( ".fa-calendar" ).addClass( "activepill" );
       $( ".fa-th-large" ).removeClass( "activepill" );
       $( ".fa-commenting-o" ).removeClass( "activepill" );
+      $( ".fa-navicon" ).removeClass( "activepill" );
       document.getElementById("toptitle").innerHTML = "Calendar";
     });
 
@@ -355,6 +366,7 @@ $( document ).ready(function() {
       $( ".fa-calendar" ).removeClass( "activepill" );
       $( ".fa-th-large" ).addClass( "activepill" );
       $( ".fa-commenting-o" ).removeClass( "activepill" );
+      $( ".fa-navicon" ).removeClass( "activepill" );
       document.getElementById("toptitle").innerHTML = "Dashboard";
     });
 
@@ -365,9 +377,20 @@ $( document ).ready(function() {
       $( ".fa-calendar" ).removeClass( "activepill" );
       $( ".fa-th-large" ).removeClass( "activepill" );
       $( ".fa-commenting-o" ).addClass( "activepill" );
+      $( ".fa-navicon" ).removeClass( "activepill" );
       document.getElementById("toptitle").innerHTML = "Messages";
     });
 
+$('#n4').click(function()
+    {
+      
+      $( ".fa-map-marker" ).removeClass( "activepill" );      
+      $( ".fa-calendar" ).removeClass( "activepill" );
+      $( ".fa-th-large" ).removeClass( "activepill" );
+      $( ".fa-commenting-o" ).removeClass( "activepill" );
+      $( ".fa-navicon" ).addClass( "activepill" );
+      document.getElementById("toptitle").innerHTML = "Username";
+    });
 
 });
 </script>
