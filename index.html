@@ -1,136 +1,373 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lan Kyone</title>
+  <title>Lan Kyone</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<style>
-/* Center the loader */
-#loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  margin: -75px 0 0 -75px;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 0.5s linear infinite;
-  animation: spin 0.5s linear infinite;
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  li:hover a i, .activepill {
+    transform: scale(2);
+  }
+
+  li:hover a i , li a i, #main:hover, #main {
+    transition: 0.2s ease-in-out;
+  }
+  
+  #main:hover {
+  transform: rotate(90deg);
+  }
+  
+  .container {
+  margin-top: 70px;
+  }
+  
+  .ft:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+.ft, .ft:focus {
+background-color: transparent;
+color:white;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+.bgr, .ftt {
+background-image: linear-gradient(to right, #434343 0%, black 100%);
+color:white;
 }
 
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
+.bgr, .eff {
+  margin: 0 5px 0 5px;
+    border-radius: 15;
+    border-color: transparent;
 }
 
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
+.navbar {
+  height:40px;
 }
 
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
+.ef {
+  width:200px;    
 }
 
-#page {
-  display: none;
-  text-align: center;
-}
-</style>
-
-<script>
-var vload;
-
-function myFunction() {
-    vload = setTimeout(showPage, 1000);
+.eff {
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
 }
 
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("page").style.display = "block";
+.lecontent {
+height:200px;
 }
-</script>
+
+
+body {
+  
+  }
+    
+    
+.ci1{      
+      height: 70px;
+  }
+  
+  .ci2 {
+   height: 120px;
+  }
+  
+
+    
+  </style>
 </head>
-<body onload="myFunction()" style="margin:0;">
+<body id="app">
+  <nav class="navbar navbar-dark fixed-top">
+      <span id="toptitle" class=" text-dark mx-auto">
+         Route
+      </span>
+  </nav>
+    <nav class="fixed-bottom">
+       <ul class="nav nav-navpills nav-justified">
+    <li class="nav-item"  id="n1">
+      <a class="nav-link" data-toggle="pill" href="#route"><i class="fa fa-map-marker activepill"></i></a>
+    </li>
+    <li class="nav-item"  id="n2">
+      <a class="nav-link" data-toggle="pill" href="#calendar"><i class="fa fa-calendar"></i></a>
+    </li>
+    <li class="nav-item" id="main">
+      <a class="nav-link" data-toggle="pill" href="#dash"><i class="fa fa-th-large"></i></a>
+    </li>
+    <li class="nav-item"  id="n3">
+      <a class="nav-link" data-toggle="pill" href="#inbox"><i class="fa fa-commenting-o"></i></a>
+    </li>
+    <li class="nav-item"  id="n4">
+      <a class="nav-link" data-toggle="pill" href="#"><i class="fa fa-navicon"></i></a>
+    </li>
+  </ul>
+  </nav>
+    <div class="tab-content">
 
-<div id="loader"></div>
+      <!--  -------------------------           ROUTE    --------------------           -->
 
-<div style="display:none;" id="page" class="animate-bottom container">
-
-  <!--  Intro  -->
-<script type="text/javascript">
-    $(window).on('load',function(){
-        $('#modal').modal('show');
-    });
-</script>
-
-
-<div class="modal fade" id="modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">A little intro to Lan Kyone!</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <div id="route" class="container tab-pane active">
+  <form action"">
+    <div class="form-group">
+      <div class="border p-1 rounded ftt">
+        <input type="text" class="form-control ft border-left-0 border-right-0 border-top-0" name="fromtxt" placeholder="From">
+        <input type="text" class="form-control ft border-0" name="totxt" placeholder="To">
+      </div>
+    </div>
+        <div class="d-flex" role="group">
+         <a href="" class="btn bgr btn-light w-100">Time</a>
+        <a href="" class="btn bgr btn-light w-100">Date</a>
+              <a href="" class="btn bgr btn-light w-100">To-Do</a>
+    </div>
+        <div class="lecontent">
+        
         </div>
-        <div class="modal-body">    
-          <img src="images/intro.gif" alt="intro" style="margin:0 auto; display: table;" class="img-fluid" />
-        </div>           
+        
+        
+        <div class="d-flex ef mx-auto">
+         <a href="" class="btn eff btn-light w-100">Calculate Fees</a>
+    </div>
+  </form>
+  </div>
+
+
+<!-- ----------------------- Calendar ----------------------->
+
+<div id="calendar" class="container tab-pane fade">
+   
+  <div class="card" id="c1">
+    <div class="card-body">
+     <div class="card-text row">
+     <div class="col-4 text-center">
+        <h4>20</h4>
+        <h5>WED</h5>
+      </div>
+      <div class="col-8">
+        <small>Some example text. Some example .....</small>
+      </div>
+      </div>
+      <div class="float-left">
+      <a  data-toggle="modal" data-target="#card1"><span class="badge badge-secondary">View</span></a>
+      </div>
+      <div class="float-right">
+      <a href="#"><span class="badge badge-danger">Delete</span></a>
       </div>
     </div>
   </div>
-
-<!-- -->
-
-  <br />
-  <img src="images/logo.png" alt="Logo" style="margin:0 auto; display: table;" class="img-fluid" />
-  <br /><br />
-  <form class="form-horizontal" action="">
-    <div class="form-group">
-      <div class="col-sm-12">
-        <input type="tel" class="form-control" id="phone" placeholder="Phone Number" name="phone">
+  <div class="modal fade" id="card1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center ml-3"><h4>20 WED</h4> <small class="ml-2">July, 2018</small></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+         Some example text. Some example text. Some example text. Some example text.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-block btn-secondary">Edit</button>
+        </div>
+        
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-12">          
-        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-      </div>
-    </div>
-
-    <div class="form-group">        
-      <div class="col-sm-12">
-        <button type="submit" class="btn btn-block btn-success">Log In</button>
-      </div>
-    </div>
-  </form>
-  <p class="text-center">
-    Don't have an account? <a href="register.html">Register here!</a>
-  </p>
+  </div>
 </div>
 
 
+
+<!-- ----------------------- Calendar ----------------------->
+
+<div id="dash" class="container tab-pane fade">
+   
+   
+<div id="slide1" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner ci1 text-center">
+    <div class="carousel-item active">
+     <div class="card bg-light">
+    <div class="card-body">
+      <p class="card-text">Weather</p>
+    </div>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card bg-light">
+    <div class="card-body">
+      <p class="card-text">Traffic</p>
+    </div>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card bg-light">
+    <div class="card-body">
+      <p class="card-text">Advertisements</p>
+    </div>
+  </div>
+    </div>
+    <br />
+  </div>
+  <a class="carousel-control-prev" href="#slide1" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#slide1" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+  
+</div>
+
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center">Bookmarked Route</h5>
+    <hr />
+      <p class="card-text">
+      <ul> <li>
+      Home ----- YTU <br/> 
+      21th July, 2018 <br/>
+      7:10 A.M.
+      </li> </ul>
+      </p>
+    </div>
+</div>
+
+<div id="slide2" class="carousel slide mt-1" data-ride="carousel">
+  <div class="carousel-inner ci2 text-center">
+    <div class="carousel-item active">
+     <div class="card ci2 bg-light">
+    <div class="card-body">
+      <p class="card-text">Survey Result</p>
+    </div>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card ci2 bg-light">
+    <div class="card-body">
+      <p class="card-text">Driver Feedback</p>
+    </div>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card ci2 bg-light">
+    <div class="card-body">
+      <p class="card-text">Some Random Quack</p>
+    </div>
+  </div>
+    </div>
+    <br />
+  </div>
+  <a class="carousel-control-prev" href="#slide2" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#slide2" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+  
+</div>
+
+</div>
+
+
+<div id="inbox" class="container tab-pane fade">
+   
+  <div class="card" id="c1">
+    <div class="card-body">
+     <div class="card-text">
+      Your Booking is at 3:45 P.M. xxxxxxxxx x x xx  etc etc
+      </div>
+      <div class="float-left">
+      <a  data-toggle="modal" data-target="#msg1"><span class="badge badge-success">Confirm</span></a>
+      </div>
+      <div class="float-right">
+      <a href="#"><span class="badge badge-danger">Reject</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="msg1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title text-center">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+         <ul> <li>
+      Home ----- YTU <br/> 
+      21th July, 2018 <br/>
+      7:10 A.M.
+      </li> </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-block btn-success">Confirm</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
 </body>
 </html>
+<script>
+$( document ).ready(function() {
+    
+  $('#n1').click(function()
+    {
+      
+      $( ".fa-map-marker" ).addClass( "activepill" );      
+      $( ".fa-calendar" ).removeClass( "activepill" );
+      $( ".fa-th-large" ).removeClass( "activepill" );
+      $( ".fa-commenting-o" ).removeClass( "activepill" );
+      document.getElementById("toptitle").innerHTML = "Route";
+    });
+
+  $('#n1').click(function()
+    {
+      
+      $( ".fa-map-marker" ).addClass( "activepill" );      
+      $( ".fa-calendar" ).removeClass( "activepill" );
+      $( ".fa-th-large" ).removeClass( "activepill" );
+      $( ".fa-commenting-o" ).removeClass( "activepill" );
+      document.getElementById("toptitle").innerHTML = "Route";
+    });
+
+  $('#n2').click(function()
+    {
+      
+      $( ".fa-map-marker" ).removeClass( "activepill" );      
+      $( ".fa-calendar" ).addClass( "activepill" );
+      $( ".fa-th-large" ).removeClass( "activepill" );
+      $( ".fa-commenting-o" ).removeClass( "activepill" );
+      document.getElementById("toptitle").innerHTML = "Calendar";
+    });
+
+  $('#main').click(function()
+    {
+      
+      $( ".fa-map-marker" ).removeClass( "activepill" );      
+      $( ".fa-calendar" ).removeClass( "activepill" );
+      $( ".fa-th-large" ).addClass( "activepill" );
+      $( ".fa-commenting-o" ).removeClass( "activepill" );
+      document.getElementById("toptitle").innerHTML = "Dashboard";
+    });
+
+  $('#n3').click(function()
+    {
+      
+      $( ".fa-map-marker" ).removeClass( "activepill" );      
+      $( ".fa-calendar" ).removeClass( "activepill" );
+      $( ".fa-th-large" ).removeClass( "activepill" );
+      $( ".fa-commenting-o" ).addClass( "activepill" );
+      document.getElementById("toptitle").innerHTML = "Messages";
+    });
+
+
+});
+</script>
