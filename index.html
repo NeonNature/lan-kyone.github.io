@@ -9,6 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&ext=.js"></script>
   <style>
   li:hover a i, .activepill {
     transform: scale(2);
@@ -64,6 +65,13 @@ color:white;
 
 .lecontent {
 height:200px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px
 }
 
 
@@ -125,8 +133,8 @@ body {
   <form action"">
     <div class="form-group">
       <div class="border p-1 rounded ftt">
-        <input type="text" class="form-control ft border-left-0 border-right-0 border-top-0" name="fromtxt" placeholder="From">
-        <input type="text" class="form-control ft border-0" name="totxt" placeholder="To">
+        <input type="text" class="form-control ft border-left-0 border-right-0 border-top-0" id="origin-input" name="fromtxt" placeholder="From">
+        <input type="text" class="form-control ft border-0" id="destination-input" name="totxt" placeholder="To">
       </div>
     </div>
         <div class="d-flex" role="group">
@@ -137,8 +145,9 @@ body {
       
     
 
-        <div class="lecontent">
-        
+        <div class="lecontent mt-1 mb-1">
+          <div id="total"></div>
+          <div id="map"></div>
         </div>
         
         
@@ -401,9 +410,7 @@ ducksquad@quack.com</p>
 </body>
 </html>
 <script>
-$( document ).ready(function() {
-    
-  $('#n1').click(function()
+$('#n1').click(function()
     {
       
       $( ".fa-map-marker" ).addClass( "activepill" );      
@@ -433,7 +440,7 @@ $( document ).ready(function() {
       $( ".fa-th-large" ).removeClass( "activepill" );
       $( ".fa-commenting-o" ).removeClass( "activepill" );
       $( ".fa-navicon" ).removeClass( "activepill" );
-      document.getElementById("toptitle").innerHTML = "Calendar";
+      document.getElementById("toptitle").innerHTML = "Booked List";
     });
 
   $('#main').click(function()
@@ -468,6 +475,94 @@ $('#n4').click(function()
       $( ".fa-navicon" ).addClass( "activepill" );
       document.getElementById("toptitle").innerHTML = "Full Name";
     });
+    
+var infowindow;
 
-});
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    mapTypeControl: false,
+    center: {
+      lat: 16.866069,
+      lng: 96.195132
+    },
+    zoom: 14
+  });
+  infowindow = new google.maps.InfoWindow();
+
+  new AutocompleteDirectionsHandler(map);
+}
+
+function AutocompleteDirectionsHandler(map) {
+  this.map = map;
+  this.originPlaceId = null;
+  this.destinationPlaceId = null;
+  this.travelMode = 'DRIVING';
+  var originInput = document.getElementById('origin-input');
+  var destinationInput = document.getElementById('destination-input');
+  this.directionsService = new google.maps.DirectionsService();
+  this.directionsDisplay = new google.maps.DirectionsRenderer();
+  this.directionsDisplay.setMap(map);
+
+  var originAutocomplete = new google.maps.places.Autocomplete(
+    originInput, {
+      placeIdOnly: true
+    });
+  var destinationAutocomplete = new google.maps.places.Autocomplete(
+    destinationInput, {
+      placeIdOnly: true
+    });
+
+  this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+  this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+}
+
+// Sets a listener on a radio button to change the filter type on Places
+// Autocomplete.
+
+AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+  var me = this;
+  autocomplete.bindTo('bounds', this.map);
+  autocomplete.addListener('place_changed', function() {
+    var place = autocomplete.getPlace();
+    if (!place.place_id) {
+      window.alert("Please select an option from the dropdown list.");
+      return;
+    }
+    if (mode === 'ORIG') {
+      me.originPlaceId = place.place_id;
+    } else {
+      me.destinationPlaceId = place.place_id;
+    }
+    me.route();
+  });
+
+};
+
+AutocompleteDirectionsHandler.prototype.route = function() {
+  if (!this.originPlaceId || !this.destinationPlaceId) {
+    return;
+  }
+  var me = this;
+
+  this.directionsService.route({
+    origin: {
+      'placeId': this.originPlaceId
+    },
+    destination: {
+      'placeId': this.destinationPlaceId
+    },
+    travelMode: this.travelMode
+  }, function(response, status) {
+    if (status === 'OK') {
+      me.directionsDisplay.setDirections(response);
+      var center = response.routes[0].overview_path[Math.floor(response.routes[0].overview_path.length / 2)];
+      infowindow.setPosition(center);
+      infowindow.setContent(response.routes[0].legs[0].duration.text + "<br>" + response.routes[0].legs[0].distance.text);
+      infowindow.open(me.map);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+};
+google.maps.event.addDomListener(window, "load", initMap);
 </script>
